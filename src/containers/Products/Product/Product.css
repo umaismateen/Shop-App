@@ -1,0 +1,26 @@
+.Product{
+    margin: 100px 20px 0px 20px ;
+    height: 360px;
+    width: 200px;
+    background-color:rgb(224, 224, 224);
+    padding: 40px;
+    padding-bottom: 0;
+    border-radius: 15px;
+    color: #30475e;
+    display: inline-block;
+}
+.Image{
+    height: 150px;
+    width: 200px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 0.1rem black);
+    margin-bottom: 0px;
+}
+.Button {
+    border-radius: 10px;
+    color: black;
+    background-color: #f05454;
+    display: inline-block;
+    padding: 13px 25px;
+    text-decoration: none;
+}
