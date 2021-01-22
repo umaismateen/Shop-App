@@ -1,14 +1,17 @@
 import React from 'react';
 
-import classes from './Category.css';
+import classes from './CategoryItem.css';
 
-const category = props => {
+const categoryItem = props => {
+
     return (
-        <div className={classes.Category} onClick={()=>props.categorySelector(props.name)} >
+        <div className={classes.CategoryItem} >
             <img className={classes.Image} src={props.url} alt={props.name} />
             <h3>{props.name}</h3>
         </div>
     )
 }
 
-export default category;
+
+
+export default categoryItem;

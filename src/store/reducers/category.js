@@ -4,6 +4,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     loading: false,
     categories: [],
+    items: [],
 }
 
 
@@ -19,13 +20,24 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 categories: action.categories,
             }
-            case actionTypes.FETCH_CATEGORIES_FAIL: 
+        case actionTypes.FETCH_CATEGORIES_FAIL:
             return {
                 ...state,
                 loading: true,
             }
-            default:
-                return state;
+        case actionTypes.FETCH_CATEGORY_ITEMS_START:
+            return {
+                ...state,
+                loading:true,
+            }
+        case actionTypes.FETCH_CATEGORY_ITEMS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                items: action.categorizedItems,
+            }
+        default:
+            return state;
     }
 }
 

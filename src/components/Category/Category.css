@@ -12,4 +12,9 @@
    color: #30475e;
    border-radius: 10px;
    height: 250px;
+   transition: all 0.2s ease;
+}
+.Category:hover {
+    background-color: rgba(202, 203, 192, 0.7);
+    cursor: pointer;
 }

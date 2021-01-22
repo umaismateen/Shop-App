@@ -1,0 +1,17 @@
+.Image {
+    width: 250px;
+    height: 180px;
+    margin-right: 20px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.CategoryItem {
+    display: flex;
+    justify-content: start;
+    color: #30475e;
+    align-items: center;
+    background-color:rgb(235, 233, 233);
+    margin: 30px;
+    width: 65%;
+    border-radius: 18px;
+}

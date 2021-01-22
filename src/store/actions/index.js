@@ -4,4 +4,5 @@ export {
 
 export {
     fetchCategories,
+    fetchCategoryItems,
 } from './category';

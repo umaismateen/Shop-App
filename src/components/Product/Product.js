@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import classes from './Product.css';
 
 const product = props => (
@@ -8,7 +8,7 @@ const product = props => (
         <h3>{props.name}</h3>
         <h4>Price: PKR {props.price}</h4>
         <h5>{props.inStock?"In Stock" : "Out Of Stock"}</h5>
-        <a href="" className={classes.Button}>Buy Now</a>
+        <Link to="/browse" className={classes.Button}>Buy Now</Link>
     </div>
 );
 

@@ -6,9 +6,9 @@ import classes from './NavigationItems.css';
 const navigationItems = props => (
 
     <ul className={classes.NavigationItems}>
-        <NavigationItem>Logout</NavigationItem>
-        <NavigationItem>Browse</NavigationItem>
-        <NavigationItem>Buy</NavigationItem>
+        {/* <NavigationItem link="/" >Logout</NavigationItem> */}
+        <NavigationItem link="/browse" >Browse</NavigationItem>
+        <NavigationItem link="/"  >Buy</NavigationItem>
     </ul>
 
     );

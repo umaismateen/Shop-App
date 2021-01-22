@@ -9,16 +9,22 @@ const categories = props => {
     const { onfetchCategories } = props;
     useEffect(() => {
         onfetchCategories();
-        console.log(props.categories);
     }, [onfetchCategories])
 
 
+    const onClickHandler = (category) => {
+        console.log("AGAYA");
+        props.history.push({
+            pathname: `/browse/${category}`
+        })
+    }
 
     let categories = <p>loading...</p>
     if (!props.loading) {
         categories = props.categories.map(
             category => (
                 <Category 
+                    categorySelector={(category)=>onClickHandler(category)}
                     key={category.category}
                     name={category.category}
                     url={category.url}
