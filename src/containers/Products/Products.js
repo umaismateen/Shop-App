@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 import classes from './Products.css';
-import Product from './Product/Product';
+import Product from '../../components/Product/Product';
 
 const products = props => {
 

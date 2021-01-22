@@ -1,0 +1,15 @@
+.Image {
+    height: 200px;
+    width: 200px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.Category {
+   padding: 40px;
+   margin: 25px;
+   background-color:rgb(224, 224, 224);
+   color: #30475e;
+   border-radius: 10px;
+   height: 250px;
+}
