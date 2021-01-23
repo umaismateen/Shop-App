@@ -15,18 +15,11 @@ const {onFetchItems} = props;
         onFetchItems(category);
     },[category,onFetchItems]);
 
-
-    const selectProductHandler = ( id ) =>{
-        props.onInitProduct(id);
-    }
-
-
     let items = <p>Loading....</p>
 
     if (props.items && !props.loading ) {
          items = props.items.map(item => (
             <CategoryItem
-                clicked={(id)=>selectProductHandler(id)}
                 id={item.id}
                 key={item.id}
                 name={item.name}
@@ -54,7 +47,6 @@ const mapStateToProps = state => {
 const  mapDispatchToProps = dispatch => {
     return {
         onFetchItems: (category) => dispatch(actions.fetchCategoryItems(category),),
-        onInitProduct: (id) => dispatch(actions.initProduct(id)),
     }
 }
 

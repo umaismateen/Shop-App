@@ -9,12 +9,22 @@
     color: #30475e;
     display: inline-block;
 }
+.Product h3 {
+    padding: 0;
+    margin:0;
+    margin-bottom: 10px;
+    
+}
+.Product h4,h5 {
+    padding: 10px 0;
+    margin:0;
+}
 .Image{
     height: 150px;
     width: 200px;
     border-radius: 10px;
     filter: drop-shadow(0 0 0.1rem black);
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 .Button {
     border-radius: 10px;

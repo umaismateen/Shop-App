@@ -1,43 +1,37 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
+
+import classes from './Product.css'
 import * as actions from '../../../store/actions/index';
 
 const product = props => {
 
     const id = window.location.pathname.slice(10);
+    const {onSetProduct} = props;
     useEffect(() => {
-        if (!props.product) {
-            props.onInitProducts(id);
-        }
-    }, [id])
+        onSetProduct(id);
+    }, [id, onSetProduct])
 
     let product = (
         <div>
-            <p>hello </p>
-            <p>hello </p>
-            <p>hello </p>
-            <p>hello </p>
-            <p>hello </p>
-            <p>hello </p>
+           <h1>Loading...</h1>
         </div>);
     console.log(props.product)
     if (props.product) {
         product = (
-            <div>
-                <div>
-                    <h2>loly</h2>
-                    <h2>loly</h2>
-                    <h2>loly</h2>
-                    <h2>loly</h2>
-                    <h2>{props.product.name}</h2>
-                    <h4>{props.product.price}</h4>
-                    <h4>{props.product.inStock}</h4>
+            <div className={classes.Product} >
+                <img className={classes.Image} src={props.product.url} alt={props.product.name} />
+                <div className={classes.Content} >
+                    <h3>{props.product.name}</h3>
+                    <h4>Price: PKR {props.product.price}</h4>
+                    <h4>{props.product.inStock? "In Stock": "Out Of Stock"}</h4>
                 </div>
-                <img url={props.product.url} />
+                <Link to="/browse" className={classes.Button}><div>Buy Now</div></Link>
             </div>
         )
     }
-    console.log("helo", product);
+    console.log("helo", props.product);
 
     return (
         <div>
@@ -55,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onInitProducts: (id) => dispatch(actions.initProduct(id)),
+        onSetProduct: (id) => dispatch(actions.setProduct(id)),
     }
 }
 

@@ -14,23 +14,33 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: true,
             }
-            case actionTypes.FETCH_PRODUCTS_SUCCESS: 
-            return{
+        case actionTypes.FETCH_PRODUCTS_SUCCESS:
+            return {
                 ...state,
                 loading: false,
                 products: action.products,
             }
-            case actionTypes.FETCH_PRODUCTS_FAIL: 
+        case actionTypes.FETCH_PRODUCTS_FAIL:
             return {
                 ...state,
                 loading: false,
             }
-            case actionTypes.SET_PRODUCT: 
-                 const product = state.products.find(product=> product.id ===action.id); 
-                 console.log(product);      
+        case actionTypes.SET_PRODUCT_START:
             return {
                 ...state,
-                product: product,
+                loading: true,
+            }
+        case actionTypes.SET_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                product: action.product,
+            }
+        case actionTypes.SET_PRODUCT_FAIL:
+            return {
+                ...state,
+                loading: false,
+                product: null,
             }
         default:
             return state;

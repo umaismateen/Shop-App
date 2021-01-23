@@ -20,26 +20,38 @@ export const fetchProductsFail = () => {
     }
 }
 
-export const initProduct = (id) => {
-    return (dispatch,prevState) => {
-        const state= prevState().product;
-        console.log("state",state);
-        if (state.products.length){
-            dispatch(setProduct(id));
-        }else{
-            console.log("nolength")
-           dispatch(fetchProducts());
-            dispatch(setProduct(id));
-        }
-    }
-}
-export const setProduct = (id) => {
+export const setProductsStart = () => {
     return {
-        type: actionTypes.SET_PRODUCT, 
-        id: id,
+        type: actionTypes.SET_PRODUCT_START, 
     }
 }
 
+export const setProductSuccess = (product) => {
+    return {
+        type: actionTypes.SET_PRODUCT_SUCCESS,
+        product: product,
+    }
+}
+
+export const setProductFail = () => {
+    return {
+        type: actionTypes.SET_PRODUCT_FAIL,
+    }
+}
+
+export const setProduct = (id) => {
+    return dispatch => {
+        dispatch(setProductsStart());
+        axios.get(`https://shop-app-780b7-default-rtdb.firebaseio.com/products/${id}.json`)
+        .then(response=> {
+            const product = response.data;
+            dispatch(setProductSuccess(product));
+        }).catch(err=>{
+            console.log("error",err.message);
+            dispatch(setProductFail());
+        })
+    }
+}
 
 
 export const fetchProducts = ()=> {

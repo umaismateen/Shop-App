@@ -5,7 +5,7 @@ import classes from './CategoryItem.css';
 const categoryItem = props => {
 
     return (
-        <Link className={classes.CategoryItem} to={`/products/${props.id}`} onClick={props.clicked(props.id)} >
+        <Link className={classes.CategoryItem} to={`/products/${props.id}`} >
             <div className={classes.Item} >
                 <img className={classes.Image} src={props.url} alt={props.name} />
                 <h3>{props.name}</h3>
@@ -14,7 +14,5 @@ const categoryItem = props => {
         </Link>
     )
 }
-
-// check if call like this or to call from categoryitems with history.push
 
 export default categoryItem;

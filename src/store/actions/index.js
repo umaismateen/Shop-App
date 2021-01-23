@@ -1,7 +1,6 @@
 export {
     fetchProducts,
     setProduct,
-    initProduct,
 } from './products';
 
 export {
