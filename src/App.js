@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import Products from './containers/Products/Products';
 import Categories from './containers/Categories/Categories';
 import CategoryItems from './containers/CategoryItems/CategoryItems';
+import Product from './containers/Products/Product/Product';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route path="/browse" exact component={Categories} />
             <Route path= "/browse/:category" component={CategoryItems}/> 
+            <Route path= "/products/:id" component={Product}/> 
             <Route path="/" component={Products} />
           </Switch>
         </div>

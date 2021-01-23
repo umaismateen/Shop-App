@@ -9,8 +9,6 @@ import category from '../../components/Category/Category';
 const categoryItems = props => {
 
 
-
-
 const {onFetchItems} = props;
     useEffect(()=>{
        const category = window.location.pathname.slice(8);
@@ -18,15 +16,21 @@ const {onFetchItems} = props;
     },[category,onFetchItems]);
 
 
+    const selectProductHandler = ( id ) =>{
+        props.onInitProduct(id);
+    }
+
+
     let items = <p>Loading....</p>
+
     if (props.items && !props.loading ) {
          items = props.items.map(item => (
             <CategoryItem
+                clicked={(id)=>selectProductHandler(id)}
+                id={item.id}
                 key={item.id}
-                price={item.price}
                 name={item.name}
-                url={item.url}
-                inStock={item.inStock}
+                url={item.url}      
              />
         ))
     }
@@ -49,7 +53,8 @@ const mapStateToProps = state => {
 
 const  mapDispatchToProps = dispatch => {
     return {
-        onFetchItems: (category) => dispatch(actions.fetchCategoryItems(category),)
+        onFetchItems: (category) => dispatch(actions.fetchCategoryItems(category),),
+        onInitProduct: (id) => dispatch(actions.initProduct(id)),
     }
 }
 

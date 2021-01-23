@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     products: [],
     loading: false,
+    product: null,
 }
 
 
@@ -23,6 +24,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
+            }
+            case actionTypes.SET_PRODUCT: 
+                 const product = state.products.find(product=> product.id ===action.id); 
+                 console.log(product);      
+            return {
+                ...state,
+                product: product,
             }
         default:
             return state;

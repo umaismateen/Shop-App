@@ -7,11 +7,70 @@
 }
 .CategoryItem {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     color: #30475e;
-    align-items: center;
+    width: 65%;  
     background-color:rgb(235, 233, 233);
     margin: 30px;
-    width: 65%;
     border-radius: 18px;
+    text-align: center;
 }
+.Item {
+    display: flex;
+    align-items: center;
+}
+.ArrowRight {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 25px;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    align-self: center;
+    width: 25px;
+    transform: rotate(45deg);
+    margin-right: 25px;
+}
+
+ @media(max-width: 850px) {
+    .CategoryItem {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+}
+
+@media(max-width: 800px) {
+    .CategoryItem h2 {
+        font-size: 22px;
+        margin: 15px;
+    }
+    .ArrowRight {
+        border-width: 0.20em 0.20em 0 0;
+        width: 17px;
+        height: 17px;
+    }
+    .Image {
+        width: 170px;
+        height: 110px;
+    }
+}
+
+@media(max-width: 550px) {
+    .CategoryItem {
+        margin: 20px;
+        padding: 10px;
+    }
+    .Item h3 {
+        font-size: 17px;
+    }
+    .ArrowRight {
+        border-width: 0.20em 0.20em 0 0;
+        width: 13px;
+        height: 13px;
+    }
+    .Image {
+        width: 140px;
+        height: 80px;
+    }
+} 

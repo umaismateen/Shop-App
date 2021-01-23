@@ -20,6 +20,28 @@ export const fetchProductsFail = () => {
     }
 }
 
+export const initProduct = (id) => {
+    return (dispatch,prevState) => {
+        const state= prevState().product;
+        console.log("state",state);
+        if (state.products.length){
+            dispatch(setProduct(id));
+        }else{
+            console.log("nolength")
+           dispatch(fetchProducts());
+            dispatch(setProduct(id));
+        }
+    }
+}
+export const setProduct = (id) => {
+    return {
+        type: actionTypes.SET_PRODUCT, 
+        id: id,
+    }
+}
+
+
+
 export const fetchProducts = ()=> {
     return dispatch => {
         dispatch(fetchProductsStart());

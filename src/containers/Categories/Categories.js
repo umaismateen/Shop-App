@@ -13,7 +13,6 @@ const categories = props => {
 
 
     const onClickHandler = (category) => {
-        console.log("AGAYA");
         props.history.push({
             pathname: `/browse/${category}`
         })
