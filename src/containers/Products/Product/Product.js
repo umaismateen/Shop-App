@@ -27,7 +27,7 @@ const product = props => {
                     <h4>Price: PKR {props.product.price}</h4>
                     <h4>{props.product.inStock? "In Stock": "Out Of Stock"}</h4>
                 </div>
-                <Link to="/browse" className={classes.Button}><div>Buy Now</div></Link>
+                <Link to="/checkout" className={classes.Button}><div>Buy Now</div></Link>
             </div>
         )
     }

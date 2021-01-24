@@ -1,0 +1,59 @@
+.Checkout {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;  
+    margin-top: 130px;
+    height: 100%; 
+    background-color: #e8e8e8;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.Form {
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1 {
+    display: block;
+    position: relative;
+    text-align: center;
+    color: black;
+    bottom: -40px;
+    padding: 0;
+    margin: 0;
+    /* padding-bottom: ; */
+
+}
+
+.Button {
+    
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #008900;
+}
+.Button:disabled{
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+
+
+@media (min-width: 1000px){
+    .Checkout {
+        width: 800px;
+    }
+}

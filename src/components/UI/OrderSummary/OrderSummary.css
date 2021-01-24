@@ -1,0 +1,16 @@
+.OrderSummary {
+    color:black;
+    width: 100%;
+}
+.Content {
+    text-align: start;
+    display: block;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 60px;
+    margin-left: 20%;
+}
+.Content h3{
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}

@@ -18,6 +18,7 @@ const products = props => {
         products = props.prodcuts.map(
             product => (
                 <Product
+                id={product.id}
                 key={product.id}
                 price={product.price}
                 name={product.name}

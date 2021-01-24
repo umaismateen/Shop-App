@@ -8,7 +8,7 @@ const product = props => (
         <h3>{props.name}</h3>
         <h4>Price: PKR {props.price}</h4>
         <h5>{props.inStock?"In Stock" : "Out Of Stock"}</h5>
-        <Link to="/browse" className={classes.Button}>Buy Now</Link>
+        <Link to={`/products/${props.id}`} className={classes.Button}>Buy Now</Link>
     </div>
 );
 

@@ -7,3 +7,7 @@ export {
     fetchCategories,
     fetchCategoryItems,
 } from './category';
+
+export {
+    purchaseProduct,
+} from './order'

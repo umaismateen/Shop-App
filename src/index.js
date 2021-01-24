@@ -9,12 +9,13 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import productReducer from './store/reducers/products';
 import categoryReducer from './store/reducers/category';
-
+import orderReducer from './store/reducers/order';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     category: categoryReducer,
     product: productReducer,
+    order: orderReducer,
 })
 
 const store = createStore(rootReducer, composeEnhancers(
