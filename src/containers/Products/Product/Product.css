@@ -43,6 +43,7 @@
     margin: auto;
     align-self: center;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 @media(min-width: 850px) {
@@ -92,4 +93,48 @@
         transform: rotate(-90deg);
   }
 
+}
+.ButtonHandler{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+	/* justify-content: center; */
+}
+.Button2{
+	width: 40px;
+	height: 40px;
+	font-size: 2em;
+	line-height: 30px;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	color:black;
+	cursor: pointer;
+    background: transparent;
+    transition: all 0.2s ease-out ;
+	box-shadow: inset -2px -2px 2px rgba(255,255,255,.2),
+				inset 2px 5px 15px rgba(0,0,0,.5);
+}
+.Button2:active{
+	box-shadow: inset 1px 1px 1px rgba(255,255,255,.1),
+				inset -1px -2.5px 7.5px rgba(0,0,0,.5);
+}
+.Button2:disabled{
+    cursor: not-allowed;
+    color: #ccc;
+}
+.Input{
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	padding: 7px 0;
+	width: 100px;
+	text-align: center;
+	font-size: 1.4em;
+	color: black;
+	margin: 0 10px;
+	background: transparent;
+	box-shadow: inset -2px -2px 2px rgba(255,255,255,.2),
+				inset 2px 5px 15px rgba(0,0,0,.5);
 }

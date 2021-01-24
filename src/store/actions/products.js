@@ -33,6 +33,7 @@ export const setProductSuccess = (product) => {
     }
 }
 
+
 export const setProductFail = () => {
     return {
         type: actionTypes.SET_PRODUCT_FAIL,

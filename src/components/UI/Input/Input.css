@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-.Input {
+.InputElement {
     width: 100%;
     height: 100%;
     color:black;
@@ -20,7 +20,8 @@
     border:none;
     outline: none;
     background-color: #e8e8e8;
-
+    box-shadow: none;
+    
 }   
 .Label {
     position: absolute;
@@ -55,14 +56,14 @@
 
 }
 
-.Input:focus + .Label .Content,
-.Input:valid + .Label .Content {
+.InputElement:focus + .Label .Content,
+.InputElement:valid + .Label .Content {
     transform: translateY(-150%);
     font-size: 14px;
     color: #008900;
 }
 
-.Input:focus + .Label::after, .Input:valid + .Label::after {
+.InputElement:focus + .Label::after, .InputElement:valid + .Label::after {
     transform: translateX(0%);
 }
 
