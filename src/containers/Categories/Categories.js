@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Category from '../../components/Category/Category';
 
+import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Categories.css';
 import * as actions from '../../store/actions/index';
 
@@ -18,7 +19,7 @@ const categories = props => {
         })
     }
 
-    let categories = <p>loading...</p>
+    let categories =<Spinner/>
     if (!props.loading) {
         categories = props.categories.map(
             category => (

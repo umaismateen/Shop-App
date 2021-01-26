@@ -45,7 +45,18 @@
     margin-top: 10px;
     cursor: pointer;
 }
+@media(min-width: 600px) {
+    .Product {
+        height: 510px;  
+        width: 550px;
 
+    }
+    .Image {
+        width: 350px;
+       height: 300px;
+    }
+
+ }
 @media(min-width: 850px) {
        .Image {
        width: 350px;
@@ -99,7 +110,6 @@
     align-items: center;
     margin-bottom: 10px;
     margin-top: 20px;
-	/* justify-content: center; */
 }
 .Button2{
 	width: 40px;

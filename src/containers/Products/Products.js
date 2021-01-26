@@ -1,5 +1,7 @@
 import React,{useEffect} from 'react';
 import {connect} from 'react-redux';
+
+import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 import classes from './Products.css';
 import Product from '../../components/Product/Product';
@@ -13,7 +15,8 @@ const products = props => {
         console.log(props.prodcuts);
     }, [onFetchProducts])
 
-    let products = <p>loading...</p>
+    let products = <Spinner/>
+
     if(!props.loading){
         products = props.prodcuts.map(
             product => (

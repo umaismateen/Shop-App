@@ -1,0 +1,49 @@
+.Order {
+    background-color:rgb(224, 224, 224);
+    color: black;
+    margin: 10px 0 40px 0;
+    width: 65%;
+    padding-left: 7%;
+    border-radius: 10px;
+
+}
+
+.Button {
+    border:none ;
+    border-radius: 10px;
+    color: black;
+    background-color: #f05454;
+    display: inline-block;
+    padding: 13px 25px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+
+ @media(max-width: 850px) {
+    .Order {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+}
+
+@media(max-width: 800px) {
+    .Order h2 {
+        font-size: 22px;
+    }
+}
+
+@media(max-width: 550px) {
+    .Order {
+        margin: 20px;
+        padding: 20px;
+    }
+    .Order h3 {
+        font-size: 17px;
+    }
+    .Order h2 {
+        font-size: 20px;
+    }
+
+} 

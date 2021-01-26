@@ -7,7 +7,7 @@ const orderSummary = props => (
         <h1>Order Summary</h1>
         <div className={classes.Content} >
             <h3>{props.name}</h3>
-            <h5>Quantity: 1</h5>
+            <h5>Quantity: {props.quantity}</h5>
             <h5>Total Price: {props.price}</h5>
         </div>
     </div>

@@ -40,6 +40,13 @@ export const setProductFail = () => {
     }
 }
 
+export const setQuantity = (quantity) => {
+    return {
+        type: actionTypes.SET_QUANTITY,
+        quantity: quantity,
+    }
+}
+
 export const setProduct = (id) => {
     return dispatch => {
         dispatch(setProductsStart());

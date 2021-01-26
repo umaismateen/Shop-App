@@ -1,6 +1,7 @@
 export {
     fetchProducts,
     setProduct,
+    setQuantity
 } from './products';
 
 export {
@@ -10,4 +11,6 @@ export {
 
 export {
     purchaseProduct,
+    fetchOrders,
+    deleteOrder,
 } from './order'

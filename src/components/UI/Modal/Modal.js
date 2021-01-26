@@ -1,27 +1,38 @@
-import React from 'react';
-import classes from './Modal.css';
-import Aux from '../Auxiliry/Auxiliry';
-import Backdrop from '../Backdrop/Backdrop';
+import React, { Fragment, useRef } from 'react';
+import classes from './Modal.module.css';
+import { CSSTransition } from 'react-transition-group';
 
+import Backdrop from '../Backdrop/Backdrop'
 
-const modal = props => {
+const Modal = props => {
+
+    const animationClasses = {
+        enter: classes["fade-enter"],
+        enterDone: classes["fade-enter-active"],
+        exit: classes["fade-exit"],
+        exitDone: classes["fade-exit-active"]
+    }
+
+    const animationTiming = {
+        enter: 0,
+        exit: 250
+    }
+
+    const nodeRef = useRef(null);
 
     return (
-        <Aux>
-            <Backdrop show={props.show} clicked={props.modalCLosed} />
-            <div className={classes.Modal}
-                style={{
-                    transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                    opacity: props.show ? '1' : '0'
-                }}>
-                {props.children}
-            </div>
-        </Aux>
-    );
+        <Fragment>
+            <Backdrop show={props.show} clicked={props.modalClosed} />
+            <CSSTransition in={props.show} nodeRef={nodeRef} unmountOnExit timeout={animationTiming} classNames={animationClasses} >
+                <div ref={nodeRef} className={classes.Modal} >
+                    {props.children}
+                </div>
+            </CSSTransition>
+        </Fragment>
+    )
+
 }
 
-
-export default React.memo(modal, (prevProps, nextProps) =>
-    nextProps.show === prevProps.show &&
-    nextProps.children === prevProps.children
-);
+export default React.memo(Modal, (prevProps, nextProps) => {
+    return nextProps.show === prevProps.show && nextProps.children === prevProps.children;
+});

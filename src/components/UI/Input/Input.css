@@ -49,6 +49,7 @@
 }
 
 .Content {
+    padding-left: 5px;
     position: absolute;
     bottom: 5px;
     left: 0px;

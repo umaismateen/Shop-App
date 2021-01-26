@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 import CategoryItem from '../../components/CategoryItem/CategoryItem';
 
+import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './CategoryItems.css';
 import category from '../../components/Category/Category';
 
@@ -15,7 +16,7 @@ const {onFetchItems} = props;
         onFetchItems(category);
     },[category,onFetchItems]);
 
-    let items = <p>Loading....</p>
+    let items = <Spinner/>
 
     if (props.items && !props.loading ) {
          items = props.items.map(item => (

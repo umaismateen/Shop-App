@@ -4,6 +4,7 @@ const initialState = {
     products: [],
     loading: false,
     product: null,
+    quantity: 1,
 }
 
 
@@ -41,6 +42,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 product: null,
+            }
+        case actionTypes.SET_QUANTITY:
+            return {
+                ...state,
+                quantity: action.quantity,
             }
         default:
             return state;

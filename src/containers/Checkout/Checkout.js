@@ -87,8 +87,10 @@ const checkout = props => {
         const order = {
             name: props.product.name,
             price: props.product.price,
+            totalPrice: props.product.price * props.quantity,
             orderData: formData,
             userId: props.product.id,
+            quantity: props.quantity,
         };
         props.onPurchaseProduct(order);
     }
@@ -151,7 +153,7 @@ const checkout = props => {
                         value={formElement.config.value}
                         elementType={formElement.config.elementType} />
                 ))}
-                <OrderSummary name={props.product.name} price={props.product.price} />
+                <OrderSummary name={props.product.name} price={props.product.price * props.quantity} quantity={props.quantity} />
                 <button className={classes.Button} disabled={!formIsValid} >ORDER</button>
             </form>
         )
@@ -171,6 +173,7 @@ const mapStateToProps = state => {
     return {
         product: state.product.product,
         loading: state.product.loading,
+        quantity: state.product.quantity,
     }
 }
 
