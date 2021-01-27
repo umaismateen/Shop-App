@@ -10,7 +10,7 @@ const orders = props => {
 
     const { onFetchOrders } = props;
     useEffect(() => {
-        onFetchOrders();
+        onFetchOrders(props.token);
     }, [onFetchOrders])
 
     const deleteOrderHandler = (id) => {
@@ -40,14 +40,15 @@ const orders = props => {
 
 const mapStateToProps = state => {
     return {
-        loading: state.order.loading,
         orders: state.order.orders,
+        loading: state.order.loading,
+        token: state.auth.token,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchOrders: () => dispatch(actions.fetchOrders()),
+        onFetchOrders: (token) => dispatch(actions.fetchOrders(token)),
         ondeleteOrder: (id) => dispatch(actions.deleteOrder(id)),
     }
 }

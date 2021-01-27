@@ -92,7 +92,7 @@ const checkout = props => {
             userId: props.product.id,
             quantity: props.quantity,
         };
-        props.onPurchaseProduct(order);
+        props.onPurchaseProduct(order,props.token);
     }
 
     const checkValidity = (value, rules) => {
@@ -174,12 +174,13 @@ const mapStateToProps = state => {
         product: state.product.product,
         loading: state.product.loading,
         quantity: state.product.quantity,
+        token: state.auth.token,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onPurchaseProduct: (order) => dispatch(actions.purchaseProduct(order)),
+        onPurchaseProduct: (order,token) => dispatch(actions.purchaseProduct(order,token)),
     }
 }
 

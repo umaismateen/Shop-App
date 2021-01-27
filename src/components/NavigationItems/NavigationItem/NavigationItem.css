@@ -5,6 +5,7 @@
   height: 100%;
   padding-top: 50px;
   text-decoration: none;
+  width: 200px;
  }
     
 .NavigationItem a {
@@ -18,7 +19,7 @@
     }
     
 .NavigationItem a:hover,
-.NavigationItem a:active,
+.NavigationItem a:active, 
 .NavigationItem a.active {
     color: black;
     }

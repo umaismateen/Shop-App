@@ -13,7 +13,7 @@ const input = props => {
 
     inputElement = (
         <div className={classes.Container}>
-            <input onChange={props.changed} className={classes.InputElement} value={props.value} required />
+            <input type={props.type} onChange={props.changed} className={classes.InputElement} value={props.value} required />
             <label className={labelClasses.join(' ')} >
                 <span className={spanClasses.join(' ')} > {"  "+props.label}</span>
             </label>

@@ -20,7 +20,7 @@ const sideDrawer = (props) => {
             <div onClick={props.closed} className={attachedClasses.join(' ')}>
                 {/* <Logo height="11%" /> */}
                 <nav>
-                    <NavigationItems isAuthenticated={props.isAuth} />
+                    <NavigationItems isAuth={props.isAuth} />
                 </nav>
             </div>
         </Aux>

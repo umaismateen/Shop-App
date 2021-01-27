@@ -24,8 +24,12 @@ const product = props => {
     }
 
     const purchaseContinueHandler = () => {
+        if(props.isAuth){
         setPurchasing(true);
-    }
+        }else {
+            props.history.push('/auth')
+        }
+    } 
 
 
 
@@ -62,13 +66,12 @@ const product = props => {
                 </div>
                 {disabled ?
                     <a className={classes.Button}
-                        onClick={purchaseContinueHandler}><div>Buy Now</div></a> : null}
+                        onClick={purchaseContinueHandler}><div>{props.isAuth?'Buy Now':'Sign Up To Order'}</div></a> : null}
             </div>
         )
     }
 
 
-    console.log("helo", props.product);
 
     return (
         <div>
@@ -83,6 +86,7 @@ const mapStateToProps = state => {
     return {
         product: state.product.product,
         purchasing: state.product.purchasing,
+        isAuth: state.auth.token !== null,
     }
 }
 

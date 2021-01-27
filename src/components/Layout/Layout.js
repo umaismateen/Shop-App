@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import Toolbar from '../NavigationItems/Toolbar/Toolbar';
+import {connect} from 'react-redux';
 
+import Toolbar from '../NavigationItems/Toolbar/Toolbar';
 import SideDrawer from '../UI/SideDrawer/SideDrawer';
 
 
@@ -17,13 +18,19 @@ const layout = props => {
 
     return (
         <div>
-            <Toolbar toggle={toggleSideDrawerHandler} />
+            <Toolbar isAuth={props.isAuth} toggle={toggleSideDrawerHandler} />
             <SideDrawer
-                // isAuth={props.isAuthenticated}
+                isAuth={props.isAuth}
                 open={showSideDrawer} closed={sideDrawerClosedHandler} />
             {props.children}
         </div>
     )
 }
 
-export default layout;
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.token !==null,
+    }
+}
+
+export default connect(mapStateToProps)(layout);

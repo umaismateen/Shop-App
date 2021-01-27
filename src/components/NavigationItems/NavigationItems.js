@@ -9,10 +9,14 @@ const navigationItems = props => (
         {/* <NavigationItem link="/" >Logout</NavigationItem> */}
         <NavigationItem link="/"  >Home</NavigationItem>
         <NavigationItem link="/browse" >Browse</NavigationItem>
-        <NavigationItem link="/orders" >Orders</NavigationItem>
+       {props.isAuth? <NavigationItem link="/orders" >Orders</NavigationItem> :null}
+        {
+            !props.isAuth ? <NavigationItem link="/auth" >Login</NavigationItem>
+           : <NavigationItem link="/logout" >Logout</NavigationItem>
+        }
     </ul>
 
-    );
+);
 
 
 export default navigationItems;

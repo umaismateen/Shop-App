@@ -20,10 +20,10 @@ export const purchaseProductFail = () => {
     }
 }
 
-export const purchaseProduct = orderData => {
+export const purchaseProduct = (orderData,token) => {
     return dispatch => {
         dispatch(purchaseProductStart());
-        axios.post("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json",orderData)
+        axios.post("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json?auth=" + token,orderData)
         .then(response => {
             console.log("order",response.data);
             dispatch(purchaseProductSuccess());
@@ -54,10 +54,10 @@ export const fetchOrdersFail = () => {
     }
 }
 
-export const fetchOrders = () => {
+export const fetchOrders = (token) => {
     return  dispatch => {
         dispatch(fetchOrdersStart());
-        axios.get("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json")
+        axios.get("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json?auth="+token)
             .then(response => {
                 const fetchOrders = [];
                 for (let id in response.data) {
