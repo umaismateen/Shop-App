@@ -89,8 +89,8 @@ const checkout = props => {
             price: props.product.price,
             totalPrice: props.product.price * props.quantity,
             orderData: formData,
-            userId: props.product.id,
             quantity: props.quantity,
+            userId: props.userId,
         };
         props.onPurchaseProduct(order,props.token);
     }
@@ -175,6 +175,7 @@ const mapStateToProps = state => {
         loading: state.product.loading,
         quantity: state.product.quantity,
         token: state.auth.token,
+        userId: state.auth.userId,
     }
 }
 

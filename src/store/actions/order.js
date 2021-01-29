@@ -54,10 +54,12 @@ export const fetchOrdersFail = () => {
     }
 }
 
-export const fetchOrders = (token) => {
+export const fetchOrders = (token,userId) => {
+    console.log("userid",userId)
     return  dispatch => {
         dispatch(fetchOrdersStart());
-        axios.get("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json?auth="+token)
+        const queryParams = token + '&orderBy="userId"&equalTo="' + userId + '"';
+        axios.get("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json?auth="+queryParams)
             .then(response => {
                 const fetchOrders = [];
                 for (let id in response.data) {

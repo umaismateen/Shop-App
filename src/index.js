@@ -11,6 +11,10 @@ import productReducer from './store/reducers/products';
 import categoryReducer from './store/reducers/category';
 import orderReducer from './store/reducers/order';
 import authReducer from './store/reducers/auth';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

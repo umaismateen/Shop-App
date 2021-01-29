@@ -1,6 +1,7 @@
-import React,{useEffect} from 'react';
-import {connect} from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
+import Carouselpop from '../../components/UI/Carousel/Carousel';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 import classes from './Products.css';
@@ -10,31 +11,34 @@ const products = props => {
 
     const { onFetchProducts } = props;
 
-    useEffect(()=>{
+    useEffect(() => {
         onFetchProducts();
         console.log(props.prodcuts);
     }, [onFetchProducts])
 
-    let products = <Spinner/>
+    let products = <Spinner />
 
-    if(!props.loading){
+    if (!props.loading) {
         products = props.prodcuts.map(
             product => (
                 <Product
-                id={product.id}
-                key={product.id}
-                price={product.price}
-                name={product.name}
-                url={product.url}
-                 inStock={product.inStock} />
+                    id={product.id}
+                    key={product.id}
+                    price={product.price}
+                    name={product.name}
+                    url={product.url}
+                    inStock={product.inStock} />
             )
         )
     }
-    return(
+    return (
+    <div>
+            <Carouselpop/>
         <div className={classes.Products} >
             <div className={classes.Products} >
-          {products}
+                {products}
             </div>
+        </div>
         </div>
     );
 };
@@ -46,13 +50,13 @@ const mapStateToProps = state => {
         prodcuts: state.product.products,
         loading: state.product.loading,
     }
-} 
+}
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchProducts: ()=> dispatch(actions.fetchProducts()),
+        onFetchProducts: () => dispatch(actions.fetchProducts()),
     }
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(products);
+export default connect(mapStateToProps, mapDispatchToProps)(products);

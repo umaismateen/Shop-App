@@ -1,0 +1,3 @@
+export const image1 ='https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80';
+export const image2 ='https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTh8fHRlY2h8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60';
+export const image3 = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fHRlY2h8ZW58MHx8MHw%3D&auto=format&fit=crop&w=600&q=60';
