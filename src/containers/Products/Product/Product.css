@@ -58,7 +58,7 @@
  }
 @media(min-width: 850px) {
        .Image {
-       width: 350px;
+       width: 40%;
        height: 300px;
        margin: 0px;
        border-top-left-radius: 15px;
@@ -72,7 +72,7 @@
         justify-content: space-between;
         padding: 0;
         color: #30475e;
-        width: 70%;  
+        width: 65%;  
         background-color:rgb(235, 233, 233);
         margin: 100px auto;
         border-radius: 18px;

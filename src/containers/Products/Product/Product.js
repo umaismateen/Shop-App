@@ -39,7 +39,7 @@ const product = props => {
 
 
 
-    let product = <Spinner />
+    let product = null;
     if (props.product) {
         const disabled = props.product.inStock;
         modal = (
@@ -73,6 +73,9 @@ const product = props => {
         )
     }
 
+    if(props.loading){
+        product = <Spinner />
+    }
 
 
     return (

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import Slider from '../../components/UI/Slider/Slider';
 import withErrorHandler from '../../hoc/withErrorHandler';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
@@ -33,13 +34,13 @@ const products = props => {
         )
     }
     return (
-    <div>        
-        <div className={classes.Products} >
+        <React.Fragment>
+            <Slider />
+            <h1 className={classes.Title}>All Products</h1>
             <div className={classes.Products} >
-                 {products}
+                {products}
             </div>
-        </div>
-        </div>
+        </React.Fragment>
     );
 };
 
@@ -59,4 +60,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler( products,axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(products, axios));

@@ -37,6 +37,7 @@ const fetchProductsSuccess = (state, action) => {
         ...state,
         loading: false,
         products: action.products,
+        product: null,
     }
 }
 const fetchProductsFail = (state, action) => {
