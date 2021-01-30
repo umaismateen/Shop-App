@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
-import Carouselpop from '../../components/UI/Carousel/Carousel';
+import withErrorHandler from '../../hoc/withErrorHandler';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 import classes from './Products.css';
@@ -32,11 +33,10 @@ const products = props => {
         )
     }
     return (
-    <div>
-            <Carouselpop/>
+    <div>        
         <div className={classes.Products} >
             <div className={classes.Products} >
-                {products}
+                 {products}
             </div>
         </div>
         </div>
@@ -59,4 +59,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(products);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler( products,axios));

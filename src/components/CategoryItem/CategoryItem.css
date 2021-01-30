@@ -8,6 +8,7 @@
     border-radius: 18px;
     text-align: center;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 .Image {
     width: 250px;
@@ -39,6 +40,9 @@
         margin-left: 80px;
         margin-right: 80px;
     }
+}
+.CategoryItem:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em #989898;
 }
 
 @media(max-width: 800px) {

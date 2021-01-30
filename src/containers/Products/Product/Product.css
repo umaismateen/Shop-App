@@ -1,5 +1,4 @@
 .Product{
-    /* margin-top: 200px ; */
     height: 420px;
     width: 75%;
     background-color:rgb(224, 224, 224);
@@ -48,7 +47,7 @@
 @media(min-width: 600px) {
     .Product {
         height: 510px;  
-        width: 550px;
+        width: 500px;
 
     }
     .Image {

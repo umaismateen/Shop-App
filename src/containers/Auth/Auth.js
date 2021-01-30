@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -39,14 +39,6 @@ const auth = props => {
         },
     });
     const [isSignup, setIsSignUp] = useState(false);
-
-    // const { buildingBurger, authRedirectPath, onSetAuthRedirectPath } = props;
-
-    // useEffect(() => {
-    //     if (!buildingBurger && authRedirectPath !== '/') {
-    //         onSetAuthRedirectPath();
-    //     }
-    // }, [buildingBurger, authRedirectPath, onSetAuthRedirectPath])
 
     const inputChangeHandler = (event, controlName) => {
         const updateControls = {
@@ -154,14 +146,12 @@ const mapStateToProps = state => {
         error: state.auth.error,
         isAuth: state.auth.token !== null,
         product: state.product.product,
-        // buildingBurger: state.burgerBuilder.building,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
-        // onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/')),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(auth);

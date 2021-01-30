@@ -8,6 +8,12 @@
     border-radius: 15px;
     color: #30475e;
     display: inline-block;
+    transition: all 0.2s ease;
+}
+.Product:hover {
+    transform: translateY(-0.25em);
+     box-shadow: 0 14px 28px rgba(225, 225, 225, 0.25), 0 10px 10px rgba(225, 225, 225, 0.22);
+ 
 }
 .Product h3 {
     padding: 0;
@@ -34,3 +40,4 @@
     padding: 13px 25px;
     text-decoration: none;
 }
+

@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect,useSelector } from 'react-redux';
+import axios from 'axios';
 
-
+import withErrorHandler from '../../hoc/withErrorHandler';
 import classes from './Orders.css'
 import Spinner from '../../components/UI/Spinner/Spinner';
 import Order from '../../components/Order/Order';
 import * as actions from '../../store/actions/index';
 
+
 const orders = props => {
     
     const { onFetchOrders } = props;
-    const userId = localStorage.getItem('userId')
-    const token = localStorage.getItem('token')
+    const userId = useSelector(state => state.auth.userId );
+    const token = useSelector(state => state.auth.token );
     useEffect(() => {
-        onFetchOrders(props.token,props.userId);}, [onFetchOrders])
+        onFetchOrders(token,userId);}, [onFetchOrders])
     
     const deleteOrderHandler = (id) => {
         props.ondeleteOrder(id);
@@ -57,4 +59,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(orders);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler( orders,axios));

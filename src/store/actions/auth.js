@@ -10,6 +10,7 @@ export const authStart = () => {
 };
 
 export const authSuccess = (token, userId) => {
+    console.log("token2",token);
     return {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
@@ -60,6 +61,7 @@ export const auth = (email, password, isSignup) => {
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn))
             }).catch(err => {
+                console.log(err);
                 dispatch(authFail(err.response.data.error));
             })
     }
@@ -68,6 +70,7 @@ export const auth = (email, password, isSignup) => {
 export const authCheckState = () => {
     return dispatch => {
         const token = localStorage.getItem('token');
+        console.log("token",token);
         if (!token) {
             dispatch(logout());
         } else {

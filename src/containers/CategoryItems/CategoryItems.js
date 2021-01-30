@@ -1,8 +1,10 @@
 import React,{useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
-import CategoryItem from '../../components/CategoryItem/CategoryItem';
 
+import CategoryItem from '../../components/CategoryItem/CategoryItem';
+import withErrorHandler from '../../hoc/withErrorHandler';
+import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './CategoryItems.css';
 import category from '../../components/Category/Category';
@@ -52,4 +54,4 @@ const  mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(categoryItems);
+export default connect(mapStateToProps,mapDispatchToProps)(withErrorHandler( categoryItems,axios));
