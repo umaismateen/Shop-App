@@ -86,7 +86,6 @@ const auth = props => {
     ))
 
     let authRedirect = null;
-    console.log(props.product)
     if (props.isAuth) {
         let url ='/';
         if(props.product){
@@ -106,7 +105,6 @@ const auth = props => {
         )
     }
 
-    console.log(authForm['email'].valid)
     return (
         <div className={classes.Auth} >
             {authRedirect}

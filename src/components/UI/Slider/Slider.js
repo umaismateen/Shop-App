@@ -7,7 +7,7 @@ import classes from './slider.css';
 
 const items = images.map((image, index) => (
     <Paper className={classes.Image} style={{backgroundColor: "#222"}} key={index}>
-        <img className={classes.Img} src={image} />
+        <img className={classes.Img} alt={index} src={image} />
     </Paper>
 ))
 

@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
-
+import urlKey from '../../Keys/urlKey';
 
 export const purchaseProductStart = () => {
     return {
@@ -23,12 +23,10 @@ export const purchaseProductFail = () => {
 export const purchaseProduct = (orderData,token) => {
     return dispatch => {
         dispatch(purchaseProductStart());
-        axios.post("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json?auth=" + token,orderData)
+        axios.post(`${urlKey}/orders.json?auth=${token}`,orderData)
         .then(response => {
-            console.log("order",response.data);
             dispatch(purchaseProductSuccess());
         }).catch (err => {
-            console.log("order", err.message);
             dispatch(purchaseProductFail());
         } )
     }
@@ -55,11 +53,10 @@ export const fetchOrdersFail = () => {
 }
 
 export const fetchOrders = (token,userId) => {
-    console.log("userid",userId)
     return  dispatch => {
         dispatch(fetchOrdersStart());
         const queryParams = token + '&orderBy="userId"&equalTo="' + userId + '"';
-        axios.get("https://shop-app-780b7-default-rtdb.firebaseio.com/orders.json?auth="+queryParams)
+        axios.get(`${urlKey}/orders.json?auth=${queryParams}`)
             .then(response => {
                 const fetchOrders = [];
                 for (let id in response.data) {
@@ -70,10 +67,8 @@ export const fetchOrders = (token,userId) => {
                         totalPrice: response.data[id].totalPrice,
                     });
                 }
-                console.log(fetchOrders);
                 dispatch(fetchOrdersSuccess(fetchOrders))
-            }).catch(err => {
-                console.log(err.message);
+            }).catch(() => {
                 dispatch(fetchOrdersFail());
             });
     }
@@ -101,14 +96,12 @@ export const deleteOrderStart = () => {
 
 export const deleteOrder = (id) => {
     return dispatch =>{
-        axios.delete(`https://shop-app-780b7-default-rtdb.firebaseio.com/orders/${id}.json`)
+        axios.delete(`${urlKey}/orders/${id}.json`)
         .then(response =>{
             dispatch(deleteOrderStart());
-        console.log("order delete",response.data);
             dispatch(deleteOrderSuccess(id));
         }).catch(err => {
             dispatch(deleteOrderFail());
-            console.log("order delete",err.message);
         })
     }
 }

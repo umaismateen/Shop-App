@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
+import urlKey from '../../Keys/urlKey';
 
 
 export const fetchCategoriesStart = ()=> {
@@ -25,7 +26,7 @@ export const fetchCategoriesFail = () => {
 export const fetchCategories = () =>{
     return dispatch => {
         dispatch(fetchCategoriesStart());
-        axios.get("https://shop-app-780b7-default-rtdb.firebaseio.com/categories.json")
+        axios.get(`${urlKey}/categories.json`)
         .then(response => {
             const fetchCategories= [];
             for (let category in response.data){
@@ -35,8 +36,7 @@ export const fetchCategories = () =>{
                });
             }
              dispatch(fetchCategoriesSuccess(fetchCategories));
-        }).catch(err=>{
-            console.log(err.message);
+        }).catch(()=>{
             dispatch(fetchCategoriesFail());
         })
     }
@@ -45,7 +45,7 @@ export const fetchCategories = () =>{
 export const fetchCategoryItems = (category) => {
     return dispatch => {
         dispatch(fetchCategoryItemsStart());
-        axios.get(`https://shop-app-780b7-default-rtdb.firebaseio.com/products.json?orderBy="category"&equalTo="${category}"`)
+        axios.get(`${urlKey}/products.json?orderBy="category"&equalTo="${category}"`)
         .then((response)=>{
             const categorizedItems= [];
             for ( let key in response.data ) {
@@ -55,8 +55,7 @@ export const fetchCategoryItems = (category) => {
                 })
             }
             dispatch(fetchCategoryItemsSuccess(categorizedItems));
-        }).catch(err=>{
-            console.log(err.message);
+        }).catch(()=>{
             dispatch(fetchCategoryItemsFail())
         })
     }

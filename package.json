@@ -43,6 +43,7 @@
     "react-paginate": "^7.0.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "3.0.1",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
@@ -101,5 +102,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "terser": "^3.14.1"
   }
 }

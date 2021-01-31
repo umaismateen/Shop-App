@@ -15,7 +15,6 @@ const products = props => {
 
     useEffect(() => {
         onFetchProducts();
-        console.log(props.prodcuts);
     }, [onFetchProducts])
 
     let products = <Spinner />

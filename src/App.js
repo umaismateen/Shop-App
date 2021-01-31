@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import React from 'react';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { connect, useSelector } from 'react-redux';
 
 import classes from './App.css';
@@ -18,13 +18,16 @@ const app = props => {
 
   const isAuth = useSelector(state => state.auth.token) !== null;
 
+  const { onTryAutoSignup } = props;
+  onTryAutoSignup();
   let routes = (
     <Switch>
       <Route path="/browse" exact component={Categories} />
       <Route path="/auth" exact component={Auth} />
       <Route path="/browse/:category" component={CategoryItems} />
       <Route path="/products/:id" component={Product} />
-      <Route path="/" component={Products} />
+      <Route path="/" exact component={Products} />
+      <Redirect to="/" />
     </Switch>
   )
   if (isAuth) {
@@ -36,14 +39,13 @@ const app = props => {
       <Route path="/auth" exact component={Auth} />
       <Route path="/browse/:category" component={CategoryItems} />
       <Route path="/products/:id" component={Product} />
-      <Route path="/" component={Products} />
+      <Route path="/" exact component={Products} />
+      <Redirect to="/" />
     </Switch>
     )
   }
-  const { onTryAutoSignup } = props;
-  useEffect(() => {
-    onTryAutoSignup()
-  }, [onTryAutoSignup])
+  
+  
 
 
   return (

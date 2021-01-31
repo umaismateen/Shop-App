@@ -6,8 +6,8 @@ const toolbar = props => {
     return(
         <header className={classes.Toolbar}>
             <DrawerToggle toggle={props.toggle} />
-            <div onClick={props.toggle} className={classes.Logo} >
-                <span>LOGO</span>
+            <div >
+                <span>SHOP APP</span>
             </div>
             <nav className={classes.DesktopOnly}>
                 <NavigationItems isAuth={props.isAuth} />
